@@ -64,6 +64,16 @@ public class Patron{
         */
     }
 
+    @Override
+    public String toString() {
+
+        StringBuilder myBuild = new StringBuilder();
+        myBuild.append('{' + numePatron + ' ' + prenumePatron + ':' + ' ' +
+                " salariuPatron=" + salariuPatron +
+                '}' );
+        String help = new String(myBuild);
+        return help;
+    }
 
     public void giveWarning(Angajat a){
         a.warnings += 1;
