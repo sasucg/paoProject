@@ -1,4 +1,4 @@
-package proiectPAO;
+package Servicii;
 
 public interface angajatService {
     void afiseazaNumeAngajat(Angajat a);

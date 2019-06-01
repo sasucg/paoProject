@@ -1,6 +1,13 @@
-package proiectPAO;
+package proiectPAO.People;
+
+import Servicii.ServiciuScriereFisiere;
+import proiectPAO.Angajat;
+import proiectPAO.People.Companie;
 
 public class Patron{
+
+    ServiciuScriereFisiere testServ = new ServiciuScriereFisiere();
+
 
     private String numePatron;
     private String prenumePatron;
@@ -8,26 +15,34 @@ public class Patron{
 
 
     public String getNumePatron() {
+        testServ.scriereAudit("get-nume-patron");
         return numePatron;
+
     }
 
     public void setNumePatron(String numePatron) {
+        testServ.scriereAudit("set-nume-patron");
         this.numePatron = numePatron;
     }
 
     public String getPrenumePatron() {
+
+        testServ.scriereAudit("get-prenume-patron");
         return prenumePatron;
     }
 
     public void setPrenumePatron(String prenumePatron) {
+        testServ.scriereAudit("set-prenume-patron");
         this.prenumePatron = prenumePatron;
     }
 
     public int getSalariuPatron() {
+        testServ.scriereAudit("get-salariu-patron");
         return salariuPatron;
     }
 
     public void setSalariuPatron(int salariuPatron) {
+        testServ.scriereAudit("set-salariu-patron");
         this.salariuPatron = salariuPatron;
     }
 
@@ -40,18 +55,22 @@ public class Patron{
         this.prenumePatron = prenumePatron;
         this.salariuPatron = salariuPatron;
         Companie.numarPatroni ++;
+        testServ.scriereAudit("constructor-patron-parametrii");
     }
 
     public void scadeSalariu(Angajat a, int suma){
+        testServ.scriereAudit("scade-salariu");
         a.salariuAngajat -= suma;
 
     }
 
     public void cresteSalariu(Angajat a, int suma){
+        testServ.scriereAudit("creste-salariu");
         a.salariuAngajat += suma;
     }
 
     public void concediereAngajat(Angajat a){
+        testServ.scriereAudit("concediere-angajat");
         a = null;
         System.out.println("Angajat concediat");
         Companie.numarAngajati--;
@@ -62,6 +81,13 @@ public class Patron{
         proiectPAO.Angajat a = b;
         a = null;
         */
+    }
+
+    public void giveWarning(Angajat a){
+        testServ.scriereAudit("give-warning");
+        a.warnings += 1;
+        if(a.warnings == 3)
+            this.concediereAngajat(a);
     }
 
     @Override
@@ -75,9 +101,5 @@ public class Patron{
         return help;
     }
 
-    public void giveWarning(Angajat a){
-        a.warnings += 1;
-        if(a.warnings == 3)
-            this.concediereAngajat(a);
-    }
+
 }

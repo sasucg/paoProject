@@ -1,4 +1,6 @@
-package proiectPAO;
+package proiectPAO.People;
+
+import proiectPAO.Angajat;
 
 import java.util.*;
 

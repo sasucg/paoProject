@@ -1,5 +1,8 @@
 package proiectPAO;
 
+import Servicii.ServiciuScriereFisiere;
+import proiectPAO.People.Companie;
+
 public class Angajat implements Comparable<Angajat>{
 
     Companie c = Companie.getInstance();

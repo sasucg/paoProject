@@ -1,4 +1,6 @@
-package proiectPAO;
+package Servicii;
+
+import proiectPAO.Angajat;
 
 public class angajatServiceImplements implements angajatService {
 
